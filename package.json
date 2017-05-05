@@ -1,0 +1,18 @@
+{
+  "name": "random-status-code",
+  "version": "1.0.0",
+  "description": "A website that responds a random status code in each response",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index.js"
+  },
+  "keywords": [
+    "random",
+    "status",
+    "code",
+    "website"
+  ],
+  "author": "Douglas Quintanilha",
+  "license": "ISC"
+}

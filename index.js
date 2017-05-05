@@ -1,0 +1,18 @@
+var express = require('express');
+var app = express();
+
+const statusCodes = [ 200, 201, 202, 203, 300, 301, 302, 400, 401, 403, 404, 500, 501];
+
+app.get('/', function (req, res) {
+    let random = parseInt(Math.random() * statusCodes.length);
+    // I want 200 to have a higher chance of happening
+    if( Math.random() > 0.5 ){
+        res.status(statusCodes[random]).send('The response status code was: '+ statusCodes[random])
+    }else{
+        res.status(200).send('This was a sucess!')
+    }
+});
+
+app.listen(3000, function () {
+    console.log('Servidor iniciado na porta 3000!');
+});
