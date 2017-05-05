@@ -14,5 +14,5 @@ app.get('/', function (req, res) {
 });
 
 app.listen(3000, function () {
-    console.log('Servidor iniciado na porta 3000!');
+    console.log('Server initialiazed on port 3000');
 });
