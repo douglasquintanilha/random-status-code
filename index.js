@@ -11,7 +11,7 @@ app.get('/', function (req, res) {
     if( Math.random() > 0.5 ){
         res.status(statusCodes[random]).send('The response status code was: '+ statusCodes[random])
     }else{
-        res.status(200).send('This was a sucess!')
+        res.status(200).send('This was a success! Status code: 200');
     }
 });
 
