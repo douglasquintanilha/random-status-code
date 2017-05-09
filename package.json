@@ -13,6 +13,12 @@
     "code",
     "website"
   ],
-  "author": "Douglas Quintanilha",
-  "license": "ISC"
+  "author": "douglas-quintanilha",
+  "license": "ISC",
+  "engines": {
+    "node": "6.10.2"
+  },
+  "dependencies": {
+    "express": "^4.15.2"
+  }
 }
