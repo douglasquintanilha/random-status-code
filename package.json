@@ -1,7 +1,11 @@
 {
   "name": "random-status-code",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "A website that responds a random status code in each response",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/douglasquintanilha/random-status-code"
+  },
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -9,6 +13,7 @@
   },
   "keywords": [
     "random",
+    "http",
     "status",
     "code",
     "website"
@@ -20,5 +25,6 @@
   },
   "dependencies": {
     "express": "^4.15.2"
-  }
+  },
+  "devDependencies": {}
 }
