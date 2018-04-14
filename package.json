@@ -19,9 +19,9 @@
     "website"
   ],
   "author": "douglas-quintanilha",
-  "license": "ISC",
+  "license": "MIT",
   "engines": {
-    "node": "6.10.2"
+    "node": "8.2.1"
   },
   "dependencies": {
     "express": "^4.15.2"
