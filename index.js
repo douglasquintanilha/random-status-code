@@ -12,7 +12,7 @@ app.get('/', function (req, res) {
         let randomInt = parseInt(smallRandom * badStatusCodes.length);
         res.status(badStatusCodes[randomInt]).send('The response status code was: '+ badStatusCodes[randomInt]);
     }else{
-        res.status(200).send('This was a success! Status code: 200');
+        res.status(200).send('This was a success!! Status code: 200');
     }
 });
 
