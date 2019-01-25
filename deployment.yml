@@ -19,3 +19,15 @@ spec:
         image: #{Azure.ContainerRegistry}#/#{Azure.ContainerImage}#:#{Azure.ContainerTag}#
         ports:
         - containerPort: 8888
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: random-status-code
+spec:
+  type: LoadBalancer
+  ports:
+  - port: 80
+    targetPort: 8888
+  selector:
+    app: rsc
