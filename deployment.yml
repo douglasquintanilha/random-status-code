@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: random-status-code-deployment
+  labels:
+    app: rsc
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: rsc
+  template:
+    metadata:
+      labels:
+        app: rsc
+    spec:
+      containers:
+      - name: random-status-code
+        image: #{Azure.ContainerRegistry}#/#{Azure.ContainerImage}#:#{Azure.ContainerTag}#
+        ports:
+        - containerPort: 8888
