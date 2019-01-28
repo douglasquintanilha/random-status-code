@@ -19,9 +19,9 @@ spec:
         image: #{Azure.ContainerRegistry}#/#{Azure.ContainerImage}#:#{Azure.ContainerTag}#
         ports:
         - containerPort: #{PORT}#
-          env:
-          - name: PORT
-            value: #{PORT}#
+        env:
+        - name: PORT
+          value: #{PORT}#
           
 
 ---
