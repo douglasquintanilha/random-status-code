@@ -19,6 +19,11 @@ spec:
         image: #{Azure.ContainerRegistry}#/#{Azure.ContainerImage}#:#{Azure.ContainerTag}#
         ports:
         - containerPort: 8888
+          env:
+          - name: PORT
+            value: #{PORT}#
+          
+
 ---
 apiVersion: v1
 kind: Service
