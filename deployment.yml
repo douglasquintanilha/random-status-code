@@ -18,7 +18,7 @@ spec:
       - name: random-status-code
         image: #{Azure.ContainerRegistry}#/#{Azure.ContainerImage}#:#{Azure.ContainerTag}#
         ports:
-        - containerPort: 8888
+        - containerPort: #{PORT}#
           env:
           - name: PORT
             value: #{PORT}#
@@ -33,6 +33,6 @@ spec:
   type: LoadBalancer
   ports:
   - port: 80
-    targetPort: 8888
+    targetPort: #{PORT}#
   selector:
     app: rsc
