@@ -1,15 +1,16 @@
-FROM docker-registry.buy4.io/openshift/stone-nodejs:v1.0.0
+FROM node:alpine
 
-ENV PATH "${APP_DIR}/../.nvm_bin:$PATH"
+ENV NODE_HOME=/home/node \
+    PORT=8888
 
-COPY . /tmp/src
+COPY . $NODE_HOME
 
-RUN /opt/openshift-platform-nodejs/files/s2i/assemble
+WORKDIR $NODE_HOME
 
-WORKDIR /home/application/current/
+RUN npm install
+
+EXPOSE $PORT
 
 ENTRYPOINT ["npm"]
-
-EXPOSE 8888
 
 CMD ["start"]
