@@ -22,8 +22,11 @@ spec:
         env:
         - name: PORT
           value: "#{PORT}#"
-          
-
+        - name: MSG
+          valueFrom:
+            secretKeyRef:
+              name: message
+              key: MSG
 ---
 apiVersion: v1
 kind: Service
