@@ -5,7 +5,7 @@ metadata:
   labels:
     app: rsc
   annotations:
-    release: "#{RELEASE}#"
+    release: "#{Release.ReleaseId}#-#{Release.AttemptNumber}#"
 spec:
   replicas: 3
   selector:
