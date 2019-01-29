@@ -4,6 +4,8 @@ metadata:
   name: random-status-code-deployment
   labels:
     app: rsc
+  annotations:
+    release: #{RELEASE}#
 spec:
   replicas: 3
   selector:
