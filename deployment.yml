@@ -1,0 +1,64 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: random-status-code-deployment
+  namespace: #{AKS_NAMESPACE}#
+  labels:
+    app: rsc
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: rsc
+  template:
+    metadata:
+      annotations:
+        release: "#{RELEASE}#"
+      labels:
+        app: rsc
+    spec:
+      containers:
+      - name: random-status-code
+        image: "#{Azure.ContainerRegistry}#/#{Azure.ContainerImage}#:#{Azure.ContainerTag}#"
+        ports:
+        - containerPort: #{PORT}#
+        resources:
+          requests:
+            cpu: #{AKS_REQUESTS_CPU}#
+            memory: #{AKS_REQUESTS_MEMORY}#
+          limits:
+            cpu: #{AKS_LIMITS_CPU}#
+            memory: #{AKS_LIMITS_MEMORY}#
+        readinessProbe:
+          tcpSocket:
+            port: #{PORT}#
+          initialDelaySeconds: 5
+          periodSeconds: 10
+        livenessProbe:
+          httpGet:
+            path: /healthcheck
+            port: #{PORT}#
+          initialDelaySeconds: 10
+          timeoutSeconds: 30
+          periodSeconds: 60
+        env:
+        - name: PORT
+          value: "#{PORT}#"
+        - name: MSG
+          valueFrom:
+            secretKeyRef:
+              name: message
+              key: MSG
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: random-status-code
+  namespace: #{AKS_NAMESPACE}#
+spec:
+  type: LoadBalancer
+  ports:
+  - port: 80
+    targetPort: #{PORT}#
+  selector:
+    app: rsc

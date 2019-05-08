@@ -1,0 +1,20 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: random-status-code
+  namespace: #{AKS_NAMESPACE}#
+  annotations:
+    nginx.ingress.kubernetes.io/enable-access-log: "false"
+spec:
+  tls:
+  - hosts:
+    - #{INGRESS_HOST}#
+
+  rules:
+  - host: #{INGRESS_HOST}#
+    http:
+      paths:
+      - path: /
+        backend:
+          serviceName: random-status-code
+          servicePort: 80
