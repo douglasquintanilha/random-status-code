@@ -11,11 +11,15 @@ app.get('/', function (req, res) {
     if( smallRandom > 0.5 ){        
         let badStatusCodes = statusCodes.slice(1);
         let randomInt = parseInt(smallRandom * badStatusCodes.length);
-        res.status(badStatusCodes[randomInt]).send('The response status code was: '+ badStatusCodes[randomInt] + ' ' + msg);
+        res.status(badStatusCodes[randomInt]).send('The response status code was: '+ badStatusCodes[randomInt] + ' and the secret is: ' + msg);
     }else{
         res.status(200).send('This was a success? Status code: 200');
     }
 });
+
+app.get('/healthcheck', function (req, res){
+    res.status(200).send('Health: ok');
+})
 
 app.listen(port, function () {
     console.log('Server initialiazed on port ' + port);
