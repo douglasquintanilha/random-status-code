@@ -31,13 +31,13 @@ spec:
             memory: #{AKS_LIMITS_MEMORY}#
         readinessProbe:
           tcpSocket:
-            port: 80
+            port: #{PORT}#
           initialDelaySeconds: 5
           periodSeconds: 10
         livenessProbe:
           httpGet:
             path: /healthcheck
-            port: 80
+            port: #{PORT}#
           initialDelaySeconds: 10
           timeoutSeconds: 30
           periodSeconds: 60
