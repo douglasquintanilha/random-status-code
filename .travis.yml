@@ -6,4 +6,4 @@ jobs:
   include:
     - stage: Produce Coverage
       node_js: node
-      script: npm run test -- --coverage && cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js && rm -rf ./coverage
+      script: npm run test -- --coverage --collectCoverageFrom="*.js" && cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js && rm -rf ./coverage
