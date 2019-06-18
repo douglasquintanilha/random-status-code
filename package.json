@@ -21,7 +21,7 @@
   "author": "douglas-quintanilha",
   "license": "MIT",
   "engines": {
-    "node": "8.2.1"
+    "node": "10.16.0"
   },
   "dependencies": {
     "express": "^4.17.1"
