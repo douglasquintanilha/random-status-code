@@ -29,7 +29,7 @@
   "devDependencies": {
     "coveralls": "^3.0.4",
     "jest": "^24.9.0",
-    "jest-extended": "^0.11.1"
+    "jest-extended": "^0.11.2"
   },
   "jest": {
     "setupFilesAfterEnv": [
