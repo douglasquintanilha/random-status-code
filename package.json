@@ -27,7 +27,7 @@
     "express": "^4.17.1"
   },
   "devDependencies": {
-    "coveralls": "^3.0.7",
+    "coveralls": "^3.0.14",
     "jest": "^24.9.0",
     "jest-extended": "^0.11.2"
   },
